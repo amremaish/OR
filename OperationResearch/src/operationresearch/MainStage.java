@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import operationresearch.Graphical.Graphical;
+import operationresearch.simplex.Simplex;
 
 public class MainStage {
 
@@ -21,7 +22,7 @@ public class MainStage {
         BuildStage();
     }
 
-    public void BuildStage() {      
+    public void BuildStage() {
         Stage stage = new Stage();
         stage.setHeight(STAGE_HEIGHT);
         stage.setWidth(STAGE_WIDTH);
@@ -37,19 +38,18 @@ public class MainStage {
         //select Posision 
         root.setTop(bar);
         root.setCenter(child);
-      
+
         child.setPadding(new Insets(25, 25, 25, 25));
         child.setPadding(new Insets(100));
         child.setHgap(10);
         child.setVgap(10);
         child.setPrefSize(300, 300);
         Button graphical = new Button("graphical");
-
         graphical.setOnAction(e -> stage.setScene(new Graphical().DrawGraphical(stage)));  // open Gpraphical scene
-
         graphical.setPrefSize(100, 100);
-        Button Simplex = new Button("Simplex");
 
+        Button Simplex = new Button("Simplex");
+        Simplex.setOnAction(e -> stage.setScene(new Simplex().DrawSimplex(stage)));  // open Gpraphical scene
         Simplex.setPrefSize(100, 100);  // set Size 
 
         child.add(graphical, 0, 0);     // Add button to BorderPane (0,0)
