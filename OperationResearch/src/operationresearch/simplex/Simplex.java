@@ -6,10 +6,12 @@
 package operationresearch.simplex;
 
 import insidefx.undecorator.UndecoratorScene;
+import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import operationresearch.MainStage;
+import operationresearch.simplex.TheInput.QInput;
 
 /**
  *
@@ -17,10 +19,16 @@ import operationresearch.MainStage;
  */
 public class Simplex {
 
+    QInput input;
+
     public UndecoratorScene DrawSimplex(Stage stage) {
 
         BorderPane root = new BorderPane();
-       
+           root.setPadding(new Insets(90, 0, 50, 10));
+        input = new QInput();
+        input.QInput(stage);
+        root.setTop(input);
+          
         // The Undecorator as a Scene
         UndecoratorScene undecoratorScene = new UndecoratorScene(stage, root, true);
         undecoratorScene.getStylesheets().add(MainStage.class.getResource("StyleSheet.css").toExternalForm());
